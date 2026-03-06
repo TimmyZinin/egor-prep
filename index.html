@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Подготовка к встрече с Тимом Зининым</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ======= RESET & BASE ======= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --coral:      #E8604C;
+      --coral-light:#FFF0ED;
+      --coral-mid:  #F28B79;
+      --gold:       #F5A623;
+      --gold-light: #FFF8EC;
+      --teal:       #1ABC9C;
+      --teal-light: #E8FBF7;
+      --teal-dark:  #16A085;
+      --bg:         #FFF9F5;
+      --surface:    #FFFFFF;
+      --text:       #2D2926;
+      --text-muted: #7A6F6A;
+      --border:     #F0E8E3;
+      --shadow-sm:  0 2px 8px rgba(0,0,0,0.07);
+      --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+      --shadow-lg:  0 8px 40px rgba(0,0,0,0.12);
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  24px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* ======= ANIMATIONS ======= */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.04); }
+    }
+
+    @keyframes slideRight {
+      from { transform: translateX(-16px); opacity: 0; }
+      to   { transform: translateX(0);     opacity: 1; }
+    }
+
+    .anim-fade-up  { animation: fadeInUp  0.55s ease both; }
+    .anim-fade     { animation: fadeIn    0.55s ease both; }
+    .anim-slide    { animation: slideRight 0.45s ease both; }
+
+    /* delay utilities */
+    .d1 { animation-delay: 0.10s; }
+    .d2 { animation-delay: 0.20s; }
+    .d3 { animation-delay: 0.30s; }
+    .d4 { animation-delay: 0.40s; }
+    .d5 { animation-delay: 0.50s; }
+
+    /* ======= LAYOUT ======= */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    /* ======= HERO HEADER ======= */
+    .hero {
+      background: linear-gradient(135deg, #E8604C 0%, #F5A623 100%);
+      color: #fff;
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: clamp(15px, 2.5vw, 18px);
+      opacity: 0.92;
+      font-weight: 400;
+      max-width: 560px;
+    }
+
+    .hero-avatar {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 100px;
+      padding: 10px 18px 10px 10px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero-avatar span.icon {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    /* ======= SECTION TITLES ======= */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(20px, 3.5vw, 26px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .icon-coral  { background: var(--coral-light);  }
+    .icon-gold   { background: var(--gold-light);   }
+    .icon-teal   { background: var(--teal-light);   }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+      margin-left: 56px;
+    }
+
+    /* ======= STEP CARDS ======= */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0 20px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .step-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--coral), var(--coral-mid));
+      color: #fff;
+      font-weight: 800;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(232,96,76,0.35);
+    }
+
+    .step-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .step-body p {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      margin-bottom: 10px;
+    }
+
+    .step-body p:last-child { margin-bottom: 0; }
+
+    /* ======= OS TABS ======= */
+    .os-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .os-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .os-box strong {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .os-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .os-box ul li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 2px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .os-box ul li::before {
+      content: '→';
+      color: var(--coral);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ======= TERMINAL BOX ======= */
+    .terminal {
+      background: #1E1E2E;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-top: 12px;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13.5px;
+      overflow-x: auto;
+    }
+
+    .terminal-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .t-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+    }
+
+    .t-red    { background: #FF5F57; }
+    .t-yellow { background: #FFBD2E; }
+    .t-green  { background: #28CA41; }
+
+    .terminal code {
+      display: block;
+      color: #A6E3A1;
+      white-space: pre;
+    }
+
+    .terminal code .prompt { color: #89B4FA; }
+    .terminal code .comment { color: #6C7086; }
+    .terminal code .success { color: #A6E3A1; }
+    .terminal code .command { color: #CDD6F4; }
+
+    /* ======= NOTE BOX ======= */
+    .note {
+      display: flex;
+      gap: 10px;
+      background: var(--gold-light);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      color: var(--text);
+    }
+
+    .note .note-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+    .warning {
+      background: #FFF3E0;
+      border-left-color: #FF9800;
+      border: 1px solid #FFD082;
+      border-left: 4px solid #FF9800;
+      border-radius: var(--radius-sm);
+      margin-top: 14px;
+    }
+
+    .warning strong {
+      display: block;
+      color: #E65100;
+      margin-bottom: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ======= CONNECT SECTION ======= */
+    .connect-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .connect-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .connect-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .connect-card .big-icon {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .connect-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .connect-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--coral-light);
+      color: var(--coral);
+      border-radius: 100px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .tag-teal {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+    }
+
+    /* ======= PROMPT CARD ======= */
+    .prompt-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .prompt-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .prompt-step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 16px;
+      position: relative;
+    }
+
+    .prompt-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 26px;
+      top: 52px;
+      bottom: -8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .prompt-step + .prompt-step {
+      margin-top: 12px;
+      padding-top: 12px;
+    }
+
+    .prompt-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pn-1 { background: #FDE8E4; color: var(--coral); }
+    .pn-2 { background: #FFF3D6; color: var(--gold);  }
+    .pn-3 { background: var(--teal-light); color: var(--teal-dark); }
+    .pn-4 { background: #EDE8FF; color: #7C5CBF; }
+
+    .prompt-body {
+      padding-top: 12px;
+      padding-bottom: 8px;
+    }
+
+    .prompt-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .prompt-body h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .prompt-body p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .example-bubble {
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.5;
+      margin-top: 6px;
+      width: 100%;
+    }
+
+    /* ======= FORMULA ======= */
+    .formula {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 32px;
+      padding: 24px;
+      background: linear-gradient(135deg, var(--coral-light), var(--gold-light));
+      border-radius: var(--radius-md);
+      border: 1px solid #F0D5CC;
+    }
+
+    .formula-pill {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-pill.accent {
+      background: var(--coral);
+      color: #fff;
+      border-color: var(--coral);
+      box-shadow: 0 4px 12px rgba(232,96,76,0.3);
+      font-size: 15px;
+    }
+
+    .formula-op {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--coral);
+    }
+
+    /* ======= SDD SECTION ======= */
+    .sdd-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .sdd-step {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .sdd-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      text-align: center;
+      min-width: 140px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .sdd-box:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .sdd-box .sdd-icon {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .sdd-box p {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .sdd-box small {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .sdd-arrow {
+      font-size: 22px;
+      color: var(--coral);
+      padding: 0 6px;
+      flex-shrink: 0;
+    }
+
+    .sdd-insight {
+      display: flex;
+      gap: 14px;
+      background: linear-gradient(135deg, var(--teal-light), #E8F8F5);
+      border: 1px solid #A8E6D8;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-top: 24px;
+      align-items: flex-start;
+    }
+
+    .sdd-insight .insight-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .sdd-insight p {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--teal-dark);
+      line-height: 1.5;
+    }
+
+    .sdd-insight span {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    /* ======= EXAMPLES SECTION ======= */
+    .examples-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .example-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .example-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .example-card .ex-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .example-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .example-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .example-card .ex-stat {
+      display: inline-block;
+      background: var(--coral-light);
+      color: var(--coral);
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-top: 10px;
+    }
+
+    .example-card.wide {
+      grid-column: span 2;
+    }
+
+    /* ======= AGENDA SECTION ======= */
+    .agenda-bg {
+      background: linear-gradient(135deg, #FFF9F5 0%, #FFF3E8 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      border: 1px solid var(--border);
+    }
+
+    .agenda-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .agenda-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s;
+    }
+
+    .agenda-list li:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .agenda-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--coral);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .agenda-text {
+      padding-top: 5px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ======= FOOTER ======= */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.85);
+      padding: 44px 0;
+      text-align: center;
+    }
+
+    .footer .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .footer .footer-tagline {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .footer-links a:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 2px;
+      background: rgba(255,255,255,0.15);
+      margin: 24px auto 0;
+      border-radius: 2px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 16px;
+    }
+
+    /* ======= DIVIDER ======= */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ======= CHECKLIST BADGE ======= */
+    .checklist-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .badge-count {
+      background: var(--coral);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 640px) {
+      section { padding: 40px 0; }
+
+      .os-row { grid-template-columns: 1fr; }
+
+      .connect-grid { grid-template-columns: 1fr; }
+
+      .examples-grid { grid-template-columns: 1fr; }
+
+      .example-card.wide { grid-column: span 1; }
+
+      .sdd-box { min-width: 110px; }
+
+      .prompt-card { padding: 20px; }
+
+      .agenda-bg { padding: 24px; }
+
+      .formula { flex-direction: column; text-align: center; }
+
+      .step-card {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+        border-radius: 12px;
+      }
+
+      .section-subtitle { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badge anim-fade">
+        <span>📅</span> 6 марта 2026
+      </div>
+      <h1 class="anim-fade-up d1">Подготовка к встрече<br>с Тимом Зининым</h1>
+      <p class="anim-fade-up d2">Настройка Claude Code — ваш AI-ассистент в терминале</p>
+      <div class="hero-avatar anim-fade-up d3">
+        <span class="icon">🤖</span>
+        <span>Claude Code · Anthropic · Автоматизация маркетинга</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SECTION 1: CHECKLIST ===== -->
+  <section>
+    <div class="container">
+
+      <div class="checklist-header anim-fade-up">
+        <div class="section-title">
+          <div class="section-icon icon-coral">✅</div>
+          <h2>Что нужно сделать ДО встречи</h2>
+        </div>
+        <span class="badge-count">4 шага</span>
+      </div>
+      <p class="section-subtitle anim-fade-up d1">Займёт 10–15 минут. Сделайте это заранее — на встрече сразу перейдём к делу.</p>
+
+      <div class="steps-list">
+
+        <!-- Step 1 -->
+        <div class="step-card anim-fade-up d1">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h3>💻 Открыть терминал</h3>
+            <p>Терминал — это текстовой интерфейс вашего компьютера. Здесь будет работать Claude Code.</p>
+            <div class="os-row">
+              <div class="os-box">
+                <strong><span>🍎</span> Mac</strong>
+                <ul>
+                  <li>Cmd+Space → напечатать "Terminal" → Enter</li>
+                  <li>Или: Finder → Программы → Утилиты → Terminal</li>
+                </ul>
+              </div>
+              <div class="os-box">
+                <strong><span>🪟</span> Windows</strong>
+                <ul>
+                  <li>Win+R → напечатать "cmd" → Enter</li>
+                  <li>Или: Поиск → "PowerShell" → Enter</li>
+                </ul>
+              </div>
+            </div>
+            <div class="terminal" style="margin-top: 14px;">
+              <div class="terminal-bar">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <code><span class="comment"># Примерно так выглядит терминал:</span>
+<span class="prompt">user@MacBook ~ %</span> <span class="command">_</span>
+</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card anim-fade-up d2">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h3>📦 Установить Claude Code</h3>
+            <p>Скопируйте команду и вставьте в терминал (Ctrl+V или Cmd+V), затем нажмите Enter:</p>
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <code><span class="prompt">~  %</span> <span class="command">npm install -g @anthropic-ai/claude-code</span>
+
+<span class="comment"># После установки проверьте версию:</span>
+<span class="prompt">~  %</span> <span class="command">claude --version</span>
+<span class="success">claude 1.x.x</span></code>
+            </div>
+            <div class="note" style="margin-top: 14px;">
+              <span class="note-icon">💡</span>
+              <div>
+                <strong style="display:block; margin-bottom:3px; font-size:13px;">Если npm не установлен</strong>
+                Сначала скачайте Node.js с <strong>nodejs.org</strong> — нажмите кнопку <strong>LTS</strong> (рекомендуемая версия). После установки Node.js команда npm станет доступна.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card anim-fade-up d3">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h3>🔑 Подключить аккаунт Anthropic</h3>
+            <p>Запустите Claude — он откроет браузер для авторизации:</p>
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <code><span class="prompt">~  %</span> <span class="command">claude</span>
+
+<span class="comment"># Браузер откроется автоматически.
+# Войдите в свой аккаунт Anthropic.
+# Вернитесь в терминал — увидите:</span>
+<span class="success">✓ Authenticated successfully. Welcome!</span></code>
+            </div>
+            <div class="note" style="margin-top: 14px;">
+              <span class="note-icon">🔐</span>
+              <div>
+                Войдите с аккаунтом, на котором у вас подписка <strong>Claude Max ($100/мес)</strong>. Это даёт огромный лимит токенов — достаточно для серьёзной автоматизации. Claude Code — это <em>отдельный инструмент</em> от claude.ai в браузере, но использует тот же аккаунт.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card anim-fade-up d4">
+          <div class="step-number">4</div>
+          <div class="step-body">
+            <h3>⚡ Режим без подтверждений <span style="font-size:12px; background:var(--gold-light); color:var(--gold); border-radius:100px; padding:2px 8px; font-weight:600; vertical-align:middle;">опционально</span></h3>
+            <p>Для скорости можно запустить Claude без запросов подтверждения на каждое действие:</p>
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <code><span class="prompt">~  %</span> <span class="command">claude --dangerously-skip-permissions</span></code>
+            </div>
+            <div class="note warning" style="margin-top: 14px; padding: 14px 16px;">
+              <span class="note-icon">⚠️</span>
+              <div>
+                <strong>Только для опытных пользователей</strong>
+                Этот режим позволяет Claude выполнять команды без вашего подтверждения каждый раз. Удобно для скорости, но вы принимаете на себя ответственность за все действия. На первой встрече мы будем использовать обычный режим.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== SECTION 2: CLAUDE CODE vs CLAUDE.AI ===== -->
+  <section>
+    <div class="container">
+
+      <div class="section-title anim-fade-up">
+        <div class="section-icon icon-teal">🔗</div>
+        <h2>Связь Claude Code с Claude в браузере</h2>
+      </div>
+      <p class="section-subtitle anim-fade-up d1">Два инструмента — один аккаунт, один AI</p>
+
+      <div class="connect-grid anim-fade-up d2">
+
+        <div class="connect-card">
+          <span class="big-icon">💬</span>
+          <h4>Claude.ai</h4>
+          <p>Удобный чат для диалога, вопросов, brainstorm-а и быстрых задач прямо в браузере.</p>
+          <span class="tag">Браузер · Чат</span>
+        </div>
+
+        <div class="connect-card">
+          <span class="big-icon">⚙️</span>
+          <h4>Claude Code</h4>
+          <p>Мощный инструмент для автоматизации. Создаёт файлы, запускает команды, работает с GitHub, анализирует данные, пишет код.</p>
+          <span class="tag tag-teal">Терминал · Автоматизация</span>
+        </div>
+
+      </div>
+
+      <div class="note" style="margin-top: 20px; border-radius: var(--radius-sm);">
+        <span class="note-icon">🤝</span>
+        <div>
+          Оба инструмента используют <strong>один и тот же аккаунт Anthropic</strong> и одну подписку. Claude Code — это Claude, но с возможностью делать реальные действия на вашем компьютере.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== SECTION 3: PERFECT PROMPT ===== -->
+  <section>
+    <div class="container">
+
+      <div class="section-title anim-fade-up">
+        <div class="section-icon icon-gold">✨</div>
+        <h2>Идеальный промпт — 4 шага</h2>
+      </div>
+      <p class="section-subtitle anim-fade-up d1">Чем точнее запрос — тем лучше результат. Вот структура, которая работает.</p>
+
+      <div class="prompt-card anim-fade-up d2">
+        <div class="prompt-steps">
+
+          <div class="prompt-step">
+            <div class="prompt-num pn-1">1</div>
+            <div class="prompt-body">
+              <div class="prompt-label">Шаг 1</div>
+              <h4>🎭 Роль — Кто ты для Claude?</h4>
+              <p>Задайте контекст: кем должен быть Claude в этом задании. Это сразу настраивает тон и глубину ответов.</p>
+              <div class="example-bubble">"Ты — опытный маркетолог, специализирующийся на контенте для LinkedIn в B2B-сегменте."</div>
+            </div>
+          </div>
+
+          <div class="prompt-step">
+            <div class="prompt-num pn-2">2</div>
+            <div class="prompt-body">
+              <div class="prompt-label">Шаг 2</div>
+              <h4>🗂 Контекст — Что Claude должен знать?</h4>
+              <p>Расскажите о себе, своей аудитории, нише и стиле. Чем больше — тем точнее результат.</p>
+              <div class="example-bubble">"Я директор по маркетингу в крипто-компании. Моя аудитория — CMO и VP Marketing в tech. Мой тон — профессиональный, но живой, без корпоративных штампов."</div>
+            </div>
+          </div>
+
+          <div class="prompt-step">
+            <div class="prompt-num pn-3">3</div>
+            <div class="prompt-body">
+              <div class="prompt-label">Шаг 3</div>
+              <h4>🎯 Задача — Что конкретно сделать?</h4>
+              <p>Конкретное задание с деталями: сколько, в каком формате, с какими ограничениями.</p>
+              <div class="example-bubble">"Напиши 5 постов для LinkedIn на тему AI-автоматизации в маркетинге. Каждый пост: хук (1 строка), основной текст (5–7 абзацев), CTA."</div>
+            </div>
+          </div>
+
+          <div class="prompt-step">
+            <div class="prompt-num pn-4">4</div>
+            <div class="prompt-body">
+              <div class="prompt-label">Шаг 4</div>
+              <h4>📋 Формат — В каком виде результат?</h4>
+              <p>Укажите структуру вывода: таблица, список, JSON, Markdown. Это экономит время на доработку.</p>
+              <div class="example-bubble">"Результат — Markdown-таблица: | # | Хук | Текст | CTA | Хэштеги |"</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="formula">
+          <div class="formula-pill">🎭 Роль</div>
+          <div class="formula-op">+</div>
+          <div class="formula-pill">🗂 Контекст</div>
+          <div class="formula-op">+</div>
+          <div class="formula-pill">🎯 Задача</div>
+          <div class="formula-op">+</div>
+          <div class="formula-pill">📋 Формат</div>
+          <div class="formula-op">=</div>
+          <div class="formula-pill accent">💎 Идеальный результат</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== SECTION 4: SDD ===== -->
+  <section>
+    <div class="container">
+
+      <div class="section-title anim-fade-up">
+        <div class="section-icon icon-coral">📐</div>
+        <h2>SDD — Specification-Driven Development</h2>
+      </div>
+      <p class="section-subtitle anim-fade-up d1">Сначала опишите что хотите — потом AI это построит</p>
+
+      <div class="note anim-fade-up d2" style="border-radius: var(--radius-sm); margin-bottom: 28px;">
+        <span class="note-icon">📖</span>
+        <div>
+          <strong style="display:block; margin-bottom:3px;">Что такое SDD?</strong>
+          Подход, при котором вы сначала описываете, что хотите получить (спецификацию), а потом AI строит это. Claude Code может создать целый проект за один промпт — если спецификация хорошая.
+        </div>
+      </div>
+
+      <div class="sdd-flow anim-fade-up d3">
+
+        <div class="sdd-step">
+          <div class="sdd-box">
+            <span class="sdd-icon">📝</span>
+            <p>Описание задачи</p>
+            <small>что хочу получить</small>
+          </div>
+        </div>
+
+        <div class="sdd-arrow">→</div>
+
+        <div class="sdd-step">
+          <div class="sdd-box">
+            <span class="sdd-icon">🤔</span>
+            <p>Claude анализирует</p>
+            <small>задаёт уточняющие<br>вопросы</small>
+          </div>
+        </div>
+
+        <div class="sdd-arrow">→</div>
+
+        <div class="sdd-step">
+          <div class="sdd-box">
+            <span class="sdd-icon">📄</span>
+            <p>Спецификация</p>
+            <small>YAML / Markdown<br>детальный план</small>
+          </div>
+        </div>
+
+        <div class="sdd-arrow">→</div>
+
+        <div class="sdd-step">
+          <div class="sdd-box">
+            <span class="sdd-icon">⚙️</span>
+            <p>Реализация</p>
+            <small>по спецификации,<br>шаг за шагом</small>
+          </div>
+        </div>
+
+        <div class="sdd-arrow">→</div>
+
+        <div class="sdd-step">
+          <div class="sdd-box">
+            <span class="sdd-icon">🔁</span>
+            <p>Итерации</p>
+            <small>доработка<br>и улучшение</small>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sdd-insight anim-fade-up d4">
+        <span class="insight-icon">💡</span>
+        <p>
+          Чем лучше спецификация — тем лучше результат.<br>
+          <span>30 минут на описание экономят 30 часов работы. Мы разберём это на встрече на вашем конкретном кейсе.</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== SECTION 5: EXAMPLES ===== -->
+  <section>
+    <div class="container">
+
+      <div class="section-title anim-fade-up">
+        <div class="section-icon icon-teal">🚀</div>
+        <h2>Примеры автоматизации Тима</h2>
+      </div>
+      <p class="section-subtitle anim-fade-up d1">Реальные кейсы из практики — то, что уже работает</p>
+
+      <div class="examples-grid">
+
+        <div class="example-card anim-fade-up d1">
+          <span class="ex-icon">🤖</span>
+          <h4>AI-блогер Лиза Соловьёва</h4>
+          <p>Автоматическая генерация и публикация постов на 6+ платформах: Telegram, LinkedIn, VK, YouTube. Один промпт — посты на все соцсети.</p>
+          <span class="ex-stat">6 платформ · 0 ручного труда</span>
+        </div>
+
+        <div class="example-card anim-fade-up d2">
+          <span class="ex-icon">💬</span>
+          <h4>Автоответчик в Telegram</h4>
+          <p>AI отвечает на сообщения когда Тим занят, используя его tone of voice. Контакты не замечают разницы.</p>
+          <span class="ex-stat">24/7 · tone of voice сохранён</span>
+        </div>
+
+        <div class="example-card anim-fade-up d3">
+          <span class="ex-icon">📊</span>
+          <h4>Исследование рынка за 2 часа</h4>
+          <p>Claude проанализировал 18 конкурентов и создал интерактивную инфографику. Пример: timzinin.com/marshal-demo/</p>
+          <span class="ex-stat">18 конкурентов · 2 часа</span>
+        </div>
+
+        <div class="example-card anim-fade-up d4">
+          <span class="ex-icon">🗄️</span>
+          <h4>Контент-банк</h4>
+          <p>Система хранения идей с автоматической разбивкой на посты для разных платформ. Одна идея превращается в 16 готовых материалов.</p>
+          <span class="ex-stat">1 идея → 16 постов</span>
+        </div>
+
+        <div class="example-card wide anim-fade-up d5">
+          <span class="ex-icon">📡</span>
+          <h4>SMM на 16 платформ одновременно</h4>
+          <p>Один пост — автоматическая адаптация под каждую платформу: длина, хэштеги, формат, тон. То, что раньше занимало день работы SMM-менеджера, теперь запускается одной командой.</p>
+          <span class="ex-stat">16 платформ · 1 команда</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== SECTION 6: AGENDA ===== -->
+  <section>
+    <div class="container">
+
+      <div class="section-title anim-fade-up">
+        <div class="section-icon icon-gold">📋</div>
+        <h2>Что мы сделаем на встрече</h2>
+      </div>
+      <p class="section-subtitle anim-fade-up d1">Программа нашей сессии</p>
+
+      <div class="agenda-bg anim-fade-up d2">
+        <ul class="agenda-list">
+          <li>
+            <div class="agenda-num">1</div>
+            <div class="agenda-text">Настроим Claude Code под ваши задачи и рабочий контекст</div>
+          </li>
+          <li>
+            <div class="agenda-num">2</div>
+            <div class="agenda-text">Создадим первый автоматизированный workflow прямо на встрече</div>
+          </li>
+          <li>
+            <div class="agenda-num">3</div>
+            <div class="agenda-text">Научимся писать эффективные промпты под маркетинговые задачи</div>
+          </li>
+          <li>
+            <div class="agenda-num">4</div>
+            <div class="agenda-text">Разберём конкретные кейсы для вашей работы и аудитории</div>
+          </li>
+          <li>
+            <div class="agenda-num">5</div>
+            <div class="agenda-text">Составим план автоматизации на месяц с приоритетами</div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Тим Зинин</div>
+      <div class="footer-tagline">AI-автоматизация для директоров по маркетингу</div>
+      <div class="footer-links">
+        <a href="https://t.me/timzinin" target="_blank">
+          <span>✈️</span> @timzinin в Telegram
+        </a>
+        <a href="https://timzinin.com" target="_blank">
+          <span>🌐</span> timzinin.com
+        </a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-copy">До встречи — если есть вопросы, пишите в Telegram</div>
+    </div>
+  </footer>
+
+</body>
+</html>
